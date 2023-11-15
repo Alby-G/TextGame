@@ -1,7 +1,8 @@
+import java.io.Serializable;
 import java.util.HashMap;
 
-public class Room {
-	private String description;
+public class Room implements Serializable {
+	//private String description;
 	private Room east;
 	private Room west;
 	private Room north;
@@ -10,13 +11,31 @@ public class Room {
 	private Room down;
 	private boolean locked;
 	private String name;
+	private String id;
 	
 	private HashMap<String, Item> roomItems;
+	private HashMap<String, NPC> roomNPCs;
 	
 	public Room(String n, String d) {
 		name = n;
-		description = d;
+		//description = d;
+		id = d;
+		locked = false;
 		roomItems = new HashMap<String, Item>();
+		roomNPCs = new HashMap<String, NPC>();
+		World.rooms.put(name, this); //Room objects places itself in the map
+	}
+	
+	public void addNPC(NPC npc) {
+		roomNPCs.put(npc.getName(), npc);
+	}
+	
+	public void getNPC(String name) {
+		return roomNPCs.get(name);
+	}
+	
+	public void setID(String s) {
+		id = s;
 	}
 	
 	public String getName() {
@@ -80,8 +99,13 @@ public class Room {
 			down = r;
 		}
 	}
-		
-	public String toString() {
-		return description;
+	
+	public String getDesc() {
+		return Game.roomDescriptions.get(id);
 	}
+	
+	public String toString() {
+		return Game.roomDescriptions.get(id);
+	}
+
 }

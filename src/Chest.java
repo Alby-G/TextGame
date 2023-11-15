@@ -6,6 +6,5 @@ public class Chest extends Item {
 		super.setHeavy(true);
 	}
 	
-	
 
 }

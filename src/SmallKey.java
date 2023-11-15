@@ -7,9 +7,14 @@ public class SmallKey extends Item{
 	
 	public void use() {
 		if(Game.getCurrentRoom().getName().equals("Hall")) {
-			System.out.println("You were able to unlock the master bedroom with the small key.");
-			Room exit = Game.getCurrentRoom().getExit("w");
-			exit.setLocked(false);
+			if(isUsed()) {
+				Game.print("You have already used the small key");
+			} else {
+				System.out.println("You were able to unlock the master bedroom with the small key.");
+				Room exit = Game.getCurrentRoom().getExit("w");
+				exit.setLocked(false);
+				Game.getCurrentRoom().setID("UPSTAIRS_HALLWAY_B");
+			}
 		} else {
 			System.out.println("The small key is not of use here.");
 		}

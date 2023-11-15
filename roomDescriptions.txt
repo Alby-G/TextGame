@@ -1,0 +1,72 @@
+LIVING_ROOM_A
+The living room is a medium symmetrical room with a couch on either side and a large flat screen TV in the corner. There is a large key and a medium sized piggy bank on the coffee table in the center of the room. There are doorways west to the kitchen, north to the gameroom, and south to the front yard. A staircase leads up to the second floor.
+#
+LIVING_ROOM_B
+The living room is a medium symmetrical room with a couch on either side and a large flat screen TV in the corner. A medium sized piggy bank on the coffee table in the center of the room. There are doorways west to the kitchen, north to the gameroom, and south to the front yard. A staircase leads up to the second floor.
+#
+LIVING_ROOM_C
+The living room is a medium symmetrical room with a couch on either side and a large flat screen TV in the corner. There are doorways west to the kitchen, north to the gameroom, and south to the front yard. A staircase leads up to the second floor.
+#
+FRONT_YARD_PATH_A
+You are now in the front yard grass. There is not much to the plain front yard. There is a door way north back into the living room. The exit is to the south through a gate, but the gate is locked.
+#
+FRONT_YARD_PATH_B
+You are now in the front yard grass. There is not much to the plain front yard. There is a door way north back into the living room. The exit has been successfully unlocked, allowing you to escape.
+#
+KITCHEN
+You are now in the kitchen. This is a quaint room with all the home appliances it needs, from a refrigerator and freezer, to an oven and stove. You start to feel a bit hungry and wonder if there is any food in here. There are doorways west to the living room, north to the back yard, and stairs down to the basement.
+#
+BASEMENT
+You are now in the basement. It is darker than all the other rooms in the house and you struggle to find any sort of light source. You think you can make out a shadow of something that looks like a chest. There are stairs to go back up to the kitchen.
+#
+BACK_YARD_PATH_A
+You are now in the back yard path way. There is a nice bed of flowers lining the path that you now walk. There is a walk in tomb to the west for the houses late owner and what appears to be a tool shed to the east. The shed is locked by a large key lock.
+#
+BACK_YARD_PATH_B
+You are now in the back yard path way. There is a nice bed of flowers lining the path that you now walk. There is a walk in tomb to the west for the houses late owner and what appears to be a tool shed to the east.
+#
+EXIT
+You have made it through the gate and escaped. CONGRATULATIONS! Take a breath before you get far away from this place, if you dare....
+#
+TOMB_A
+You are standing in the tomb. You notice the coffin has been defiled and left open, but to your surprise there is no corpse inside, even though this was debriefed to you already. You see the left leg bone that surely belongs to the grave in front of you. You can exit the tomb east back to the back yard.
+#
+TOMB_B
+You are standing in the tomb. You notice the coffin has been defiled and left open, but to your surprise there is no corpse inside, even though this was debriefed to you already. You can exit the tomb east back to the back yard.
+#
+SHED
+You are standing in the shed. There is a work bench across from you with a few tools that may be of use to you in the future. You can leave the shed by going west into the back yard.
+#
+GAMEROOM_A
+You have entered the gameroom. There are multitudes of TVs and computers used to play games in here. It is also a bright room wigetName()th many colors filling you vision, you better do whatever you are planning to do in here quickly before your head hurts. You notice a wand sitting by one of the computers and a suspicious chain suspended from the ceiling. There is a door way south to the living room.
+#
+GAMEROOM_B
+You have entered the gameroom. There are multitudes of TVs and computers used to play games in here. It is also a bright room with many colors filling you vision, you better do whatever you are planning to do in here quickly before your head hurts. You notice a suspicious chain suspended from the ceiling. There is a door way south to the living room.
+#
+GAMEROOM_C
+You have entered the gameroom. There are multitudes of TVs and computers used to play games in here. It is also a bright room with many colors filling you vision, you better do whatever you are planning to do in here quickly before your head hurts. There is green goo all over the floor from the chain. This color just adds to the vibrancy of the room. There is a door way south to the living room.
+#
+GAMEROOM_D
+You have entered the gameroom. There are multitudes of TVs and computers used to play games in here. It is also a bright room with many colors filling you vision, you better do whatever you are planning to do in here quickly before your head hurts. You notice a wand sitting by one of the computers. There is green goo all over the floor from the chain. This color just adds to the vibrancy of the room. There is a door way south to the living room.
+#
+GAMEROOM_E
+You have entered the gameroom. There are multitudes of TVs and computers used to play games in here. It is also a bright room with many colors filling you vision, you better do whatever you are planning to do in here quickly before your head hurts. You notice a suspicious chain suspended from the ceiling. There is a door way south to the living room.
+#
+UPSTAIRS_HALLWAY_A
+You have walked up the stairs to second floor. You are standing in a narrow hallway. There is a doorway west to the master bedroom but it appears to be locked by a small key lock. There are other doorways north to the bathroom and east to a closet.
+#
+UPSTAIRS_HALLWAY_B
+You have walked up the stairs to second floor. You are standing in a narrow hallway. There are doorways west to the master bedroom, north to the bathroom and east to a closet.
+#
+MASTER_BEDROOM
+You are now in the master bedroom. There is king size bed and tiny bedside desk to accompany it. The entire south wall of the room is a mirror so you can't help but stare at yourself while looking around the room. There is a dresser in the corner of the room. You can go east back into the hallway.
+#
+BATHROOM
+This is the only bathroom in the house. Luckily there is a working shower and toilet if you need it. The mirror above the sink is is slightly off, looks suspicious. You can go south back into the hallway.
+#   
+CLOSET_A
+You have opened the door and entered the closet. There is a small light on the ceiling allowing you slight visibility. There is a dirty pile of clothes on the floor next to you. You can go west back into the hallway.
+#
+CLOSET_B
+You have opened the door and entered the closet. There is a small light on the ceiling allowing you slight visibility. You have scattered the dirty clothes all over the closet.
+#
