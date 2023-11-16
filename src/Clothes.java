@@ -12,6 +12,7 @@ public class Clothes extends Item{
 			} else {
 				setUsed(true);
 				Game.print("You dig through the dirty pile of clothes and you feel something a bit hard. You grab it and to your surprise there is a complete torso bone now in your hands.");
+				Game.getCurrentRoom().setID("CLOSET_B");
 				Game.getInventory().add(new Torso());
 			}
 		} else {

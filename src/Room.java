@@ -30,8 +30,16 @@ public class Room implements Serializable {
 		roomNPCs.put(npc.getName(), npc);
 	}
 	
-	public void getNPC(String name) {
+	public NPC getNPC(String name) {
 		return roomNPCs.get(name);
+	}
+	
+	public boolean hasNPC(String name) {
+		return roomNPCs.containsKey(name);
+	}
+	
+	public NPC removeNPC(String name) {
+		return roomNPCs.remove(name);
 	}
 	
 	public void setID(String s) {

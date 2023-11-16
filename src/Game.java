@@ -178,7 +178,12 @@ public class Game {
 				case "look":
 					itemName = a[1];
 					i2 = currentRoom.getItem(a[1]);
+					npc = currentRoom.getNPC(a[1]);
 					boolean found = false;
+					if(currentRoom.hasNPC(a[1])) {
+						npc.look();
+						found = true;
+					}
 					if(currentRoom.hasItem(a[1])) {
 						i2.look();
 						found = true;

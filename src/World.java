@@ -70,6 +70,8 @@ public class World {
 		kitchen.addItem(new Fridge());
 		kitchen.addItem(new Freezer());
 		
+		livingRoom.addNPC(new Puppy());
+		
 		return livingRoom;
 	}
 }
