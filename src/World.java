@@ -17,7 +17,7 @@ public class World {
 		Room path2 = new Room("Path Two", "BACK_YARD_PATH_A");
 		Room tomb = new Room("Tomb", "TOMB_A");
 		Room shed = new Room("Shed", "SHED");
-		Room masterBedroom = new Room("Master Bedroom", "MASTER_BEDROOM");
+		Room masterBedroom = new Room("Master Bedroom", "MASTER_BEDROOM_A");
 		Room bathroom = new Room("Bathroom", "BATHROOM");
 		Room closet = new Room("Closet", "CLOSET_A");
 		
@@ -71,6 +71,7 @@ public class World {
 		kitchen.addItem(new Freezer());
 		
 		livingRoom.addNPC(new Puppy());
+		//livingRoom.addNPC(new Skeleton());
 		
 		return livingRoom;
 	}

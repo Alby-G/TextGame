@@ -11,7 +11,7 @@ public class Mirror extends Item{
 			if(isUsed()) {
 				Game.print("The mirror is already opened.");
 			} else {
-				System.out.println("You open the mirror and a small key falls out onto the floor");
+				Game.print("You open the mirror and a small key falls out onto the floor");
 				setUsed(true);
 				Game.getCurrentRoom().addItem(new SmallKey());
 			}

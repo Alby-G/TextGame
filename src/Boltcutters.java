@@ -12,7 +12,7 @@ public class Boltcutters extends Item{
 			} else {
 				Game.getCurrentRoom().getItem("dresser").setLocked(false);
 				Game.print("You use the boltcutters to cut the chains off the dresser. You are now able to open the drawers of the dresser.");
-				
+				Game.getCurrentRoom().setID("MASTER_BEDROOM_B");
 			}
 		} else {
 			Game.print("The boltcutters are not of use here.");

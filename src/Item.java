@@ -63,10 +63,10 @@ public class Item implements Serializable {
 	}
 	
 	public void look() {
-		System.out.println(desc);
+		Game.print(desc);
 	}
 	
 	public void use() {
-		System.out.println("You cannot use this.");
+		Game.print("You cannot use this.");
 	}
 }

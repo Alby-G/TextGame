@@ -19,7 +19,7 @@ public class Skull extends Item{
 			Game.getConditions().add("skullPlaced");
 			
 			if(Game.getConditions().contains("rightarmPlaced") && Game.getConditions().contains("rightlegPlaced") && Game.getConditions().contains("leftlegPlaced") && Game.getConditions().contains("leftarmPlaced") && Game.getConditions().contains("skullPlaced") && Game.getConditions().contains("torsoPlaced")) {
-				Game.print("You have placed the right arm bone, which was the final bone to collect. You are now able to use the grave to recreate the skeleton.");
+				Game.print("You have placed the skull, which was the final bone to collect. You are now able to use the grave to recreate the skeleton.");
 				Item i  = Game.getCurrentRoom().getItem("grave");
 				i.setLocked(false);
 			} else {

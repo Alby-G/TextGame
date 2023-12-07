@@ -1,14 +1,14 @@
 LIVING_ROOM_A
-The living room is a medium symmetrical room with a couch on either side and a large flat screen TV in the corner. There is a large key and a medium sized piggy bank on the coffee table in the center of the room. There are doorways west to the kitchen, north to the gameroom, and south to the front yard. A staircase leads up to the second floor.
+The living room is a medium symmetrical room with a couch on either side and a large flat screen TV in the corner. There is a large key and an average sized piggy bank on the coffee table in the center of the room. A puppy scurries around the room, if you haven't already scared him away. There are doorways west to the kitchen, north to the gameroom, and south to the front yard. A staircase leads up to the second floor.
 #
 LIVING_ROOM_B
-The living room is a medium symmetrical room with a couch on either side and a large flat screen TV in the corner. A medium sized piggy bank on the coffee table in the center of the room. There are doorways west to the kitchen, north to the gameroom, and south to the front yard. A staircase leads up to the second floor.
+The living room is a medium symmetrical room with a couch on either side and a large flat screen TV in the corner. A medium sized piggy bank on the coffee table in the center of the room. A puppy scurries around the room, if you haven't already scared him away. There are doorways west to the kitchen, north to the gameroom, and south to the front yard. A staircase leads up to the second floor.
 #
 LIVING_ROOM_C
-The living room is a medium symmetrical room with a couch on either side and a large flat screen TV in the corner. There are doorways west to the kitchen, north to the gameroom, and south to the front yard. A staircase leads up to the second floor.
+The living room is a medium symmetrical room with a couch on either side and a large flat screen TV in the corner. A puppy scurries around the room, if you haven't already scared him away. There are doorways west to the kitchen, north to the gameroom, and south to the front yard. A staircase leads up to the second floor.
 #
 FRONT_YARD_PATH_A
-You are now in the front yard grass. There is not much to the plain front yard. There is a door way north back into the living room. The exit is to the south through a gate, but the gate is locked.
+You are now in the front yard grass. There is not much to the plain front yard. There is a door way north back into the living room. The exit is to the south through a gate, but the gate is locked by a master lock.
 #
 FRONT_YARD_PATH_B
 You are now in the front yard grass. There is not much to the plain front yard. There is a door way north back into the living room. The exit has been successfully unlocked, allowing you to escape.
@@ -34,11 +34,14 @@ You are standing in the tomb. You notice the coffin has been defiled and left op
 TOMB_B
 You are standing in the tomb. You notice the coffin has been defiled and left open, but to your surprise there is no corpse inside, even though this was debriefed to you already. You can exit the tomb east back to the back yard.
 #
+TOMB_C
+You are standing in the tomb. The revived skeleton lays in the grave.
+#
 SHED
 You are standing in the shed. There is a work bench across from you with a few tools that may be of use to you in the future. You can leave the shed by going west into the back yard.
 #
 GAMEROOM_A
-You have entered the gameroom. There are multitudes of TVs and computers used to play games in here. It is also a bright room wigetName()th many colors filling you vision, you better do whatever you are planning to do in here quickly before your head hurts. You notice a wand sitting by one of the computers and a suspicious chain suspended from the ceiling. There is a door way south to the living room.
+You have entered the gameroom. There are multitudes of TVs and computers used to play games in here. It is also a bright room with many colors filling you vision, you better do whatever you are planning to do in here quickly before your head hurts. You notice a wand sitting by one of the computers and a suspicious chain suspended from the ceiling. There is a door way south to the living room.
 #
 GAMEROOM_B
 You have entered the gameroom. There are multitudes of TVs and computers used to play games in here. It is also a bright room with many colors filling you vision, you better do whatever you are planning to do in here quickly before your head hurts. You notice a suspicious chain suspended from the ceiling. There is a door way south to the living room.
@@ -58,7 +61,10 @@ You have walked up the stairs to second floor. You are standing in a narrow hall
 UPSTAIRS_HALLWAY_B
 You have walked up the stairs to second floor. You are standing in a narrow hallway. There are doorways west to the master bedroom, north to the bathroom and east to a closet.
 #
-MASTER_BEDROOM
+MASTER_BEDROOM_A
+You are now in the master bedroom. There is king size bed and tiny bedside desk to accompany it. The entire south wall of the room is a mirror so you can't help but stare at yourself while looking around the room. There is a dresser in the corner of the room that is wrapped in chains. You can go east back into the hallway.
+#
+MASTER_BEDROOM_B
 You are now in the master bedroom. There is king size bed and tiny bedside desk to accompany it. The entire south wall of the room is a mirror so you can't help but stare at yourself while looking around the room. There is a dresser in the corner of the room. You can go east back into the hallway.
 #
 BATHROOM

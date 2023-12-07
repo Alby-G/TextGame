@@ -6,7 +6,9 @@ public class Skeleton extends NPC{
 	}
 	
 	public void talk() {
-		if(Game.getConditions().contains("sTalked1")) {
+		if(Game.getConditions().contains("sTalked1") && Game.getConditions().contains("sTalked2")) {
+			say("What else do you need from me? Go on and get out of here.");
+		} else if(Game.getConditions().contains("sTalked1")) {
 			say("Is there anything you need from me?");
 			String[] options = {
 					"The front gate is locked for me to leave. I was hoping you knew something about it.",
@@ -20,7 +22,6 @@ public class Skeleton extends NPC{
 					"You've been dead for some time and unable to rest without your completed skeleton. Thanks to my help."
 			};
 			getResponse(options);
-	
 		}
 	}
 	
@@ -31,12 +32,14 @@ public class Skeleton extends NPC{
 					say("Hmm, the front gate eh.");
 					Game.print("He does a few hand twirls and a key magically appears in his hands. He hands you the key. You assume this opens the lock on the exit gate.");
 					Game.getInventory().add(new MasterKey());
+					Game.getConditions().add("sTalked2");
 					break;
 					
 				case 2:
 					say("Hey, you do not call me buster! But just this once for helping me out the way you did");
 					Game.print("He does a few hand twirls and a key magically appears in his hands. He hands you the key. You assume this opens the lock on the exit gate.");
 					Game.getInventory().add(new MasterKey());
+					Game.getConditions().add("sTalked2");
 					break;
 			}
 		} else	{

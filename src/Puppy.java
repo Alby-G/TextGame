@@ -60,7 +60,7 @@ public class Puppy extends NPC{
 					Game.getConditions().add("pTalked1");
 					break;
 				case 2:
-					say("I am to adorable! Why are you so mean?");
+					say("I am adorable! Why are you so mean?");
 					Game.print("The puppy bites you. You deserve it.");
 					Game.getConditions().add("pTalked1");
 					break;

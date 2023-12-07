@@ -10,13 +10,13 @@ public class SmallKey extends Item{
 			if(isUsed()) {
 				Game.print("You have already used the small key");
 			} else {
-				System.out.println("You were able to unlock the master bedroom with the small key.");
+				Game.print("You were able to unlock the master bedroom with the small key.");
 				Room exit = Game.getCurrentRoom().getExit("w");
 				exit.setLocked(false);
 				Game.getCurrentRoom().setID("UPSTAIRS_HALLWAY_B");
 			}
 		} else {
-			System.out.println("The small key is not of use here.");
+			Game.print("The small key is not of use here.");
 		}
 	}
 }

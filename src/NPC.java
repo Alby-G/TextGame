@@ -10,6 +10,7 @@ public class NPC implements Serializable{
 		this.desc = desc;
 	}
 	
+	
 	public String getName() {
 		return name;
 	}
@@ -39,9 +40,10 @@ public class NPC implements Serializable{
 			Game.print("Option "+(i+1)+": "+options[i]);
 		}
 		Game.print("Enter an option (1-"+options.length+"):");
-		int option = Game.scan.nextInt();
-		Game.scan.nextLine(); // Flush input buffer
-		response(option);
+		Game.talking = this;
+	//	int option = Game.scan.nextInt();
+	//	Game.scan.nextLine(); // Flush input buffer
+	//	response(option);
 	}
 	
 }

@@ -14,6 +14,7 @@ public class Grave extends Item{
 			} else {
 				Game.print("You have successfully recreated the skeleton. He stands up on his own and gives you a puzzling look.");
 				Game.getCurrentRoom().addNPC(new Skeleton());
+				Game.getCurrentRoom().setID("TOMB_C");
 			}
 		} else {
 			Game.print("There is no grave here.");

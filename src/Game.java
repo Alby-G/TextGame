@@ -9,6 +9,8 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+
+
 public class Game {
 
 	private static Room currentRoom;
@@ -16,6 +18,8 @@ public class Game {
 	public static HashMap<String, String> roomDescriptions = new HashMap<String, String>();
 	public static HashSet<String> conditions = new HashSet<String>();
 	public static Scanner scan = new Scanner(System.in);
+	private static GUI gui;
+	public static NPC talking;
 	
 	public static void populateMap(String fileName) {
 		Scanner scan;
@@ -27,7 +31,7 @@ public class Game {
 				id = scan.nextLine();
 				desc = scan.nextLine();
 				roomDescriptions.put(id, desc);
-				scan.nextLine();
+				scan.nextLine(); // flush symbol separator in roomDescriptions.txt
 			}
 		} catch (FileNotFoundException e) {
 			print("ERROR: Cannot read file.");
@@ -43,6 +47,7 @@ public class Game {
 			stream.writeObject(currentRoom);
 			stream.writeObject(inventory);
 			stream.writeObject(World.rooms);
+			stream.writeObject(conditions);
 			stream.close();
 			print("Game Saved");
 		} catch (IOException e) {
@@ -72,6 +77,12 @@ public class Game {
 				print("Could not load rooms");
 				e.printStackTrace();
 			}
+			try {
+				conditions = (HashSet<String>) stream.readObject();
+			} catch(ClassNotFoundException e) {
+				print("Could not load game conditions");
+				e.printStackTrace();
+			}
 			print("Game Loaded");
 			stream.close();
 		} catch (FileNotFoundException e) {
@@ -95,20 +106,160 @@ public class Game {
 		return conditions;
 	}
 	
-	public static void print(String message) {
-		System.out.println(message+"\n");
+	public static void print(Object s) {
+		gui.print(s.toString());
 	}
 	
-	public static void main(String[] args) {
-		print("You have been sent on a mission to a manision. Your goal is to recollect and return the missing skeleton parts of the houses owner and return them to the tomb. It is said that his skeleton has been scattered around the mansion. Once you entered through the front gate is appears to have slammed shut, so if you want to make it out of here you better complete what you came here to do. You proceed to enter the front door of the house.");
-		populateMap("roomDescriptions.txt");
-		String playerCommand;
+	public static void processCommand(String playerCommand) {
 		String itemName;
 		Item i2;
 		NPC npc;
+		String[] a;
+		a = playerCommand.split(" ");
+		switch(a[0]) {
+			case "e":
+			case "w":
+			case "n":
+			case "s":
+			case "u":
+			case "d":
+				Room nextRoom = currentRoom.getExit(a[0]);
+				if(nextRoom != null) {
+					if(nextRoom.isLocked()) {
+						print("The room is locked.");
+					} else {
+						currentRoom = nextRoom;
+						print(currentRoom);
+					}
+				} else {
+					print("You can't travel that way!");
+				}
+					
+				if(getCurrentRoom().getName().equals("Exit")) {
+					Game g = new Game();
+					g.pause();
+				/*	try {
+						gui.paint(gui.getGraphics());
+						Thread.sleep(5000);
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
+					System.exit(0);*/
+				}
+				break;
+				
+			case "save":
+				saveGame();
+				break;
+					
+			case "load":
+				loadGame();
+				print(currentRoom);
+				break;
+					
+			case "i":
+				if(inventory.isEmpty()) {
+					print("You are carrying nothing.");
+				} else {
+					for(Item i: inventory) {
+						print(i);
+					}
+				}
+				break;
+					
+			case "x":
+				print("Okay. Bye!");
+				break;
+					
+			case "take":
+				//System.out.println("Take what? ");
+				//itemName = scan.nextLine();
+				itemName = a[1];
+				if(currentRoom.hasItem(itemName)) {
+					Item item = currentRoom.getItem(itemName);
+					item.take();
+				} else {
+					print("There is no "+ a[1] + "!");
+				}
+				break;
+					
+			case "look":
+				itemName = a[1];
+				i2 = currentRoom.getItem(a[1]);
+				npc = currentRoom.getNPC(a[1]);
+				boolean found = false;
+				if(currentRoom.hasNPC(a[1])) {
+					npc.look();
+					found = true;
+				}
+				if(currentRoom.hasItem(a[1])) {
+					i2.look();
+					found = true;
+				} else {
+					for(Item i : inventory) {
+						if(itemName.equals(i.getName())) {
+							i.look();
+							found = true;
+						}
+					}
+						
+					if(!found) {
+						print("There is no " + a[1] + "!");
+					}
+				}	
+				break;
+					
+			case "use":
+				System.out.println();
+				itemName=a[1];
+				boolean found2 = false;
+				Item i = Game.getItem(a[1]);
+				if(i != null) {
+					found2 = true;
+					i.use();
+				}
+				i2 = currentRoom.getItem(a[1]);
+				if(currentRoom.hasItem(a[1])) {
+					i2.use();
+					found2 = true;
+				}
+				if(!found2) {
+					print("You can't do that.");
+				}
+					
+					
+				break;
+					
+			case "talk":
+				boolean found3 = false;
+				npc = currentRoom.getNPC(a[1]);
+				if(npc != null) {
+					found3 = true;
+					npc.talk();
+				}
+					
+				if(!found3) {
+					print("There is no "+a[1]+" to talk to!");
+				}
+					
+				break;
+					
+				default:
+					print("Invalid command.");
+		}
+	}
+	
+	public static void main(String[] args) {
+		populateMap("roomDescriptions.txt");
+	//	String playerCommand;
+	//	String itemName;
+	//	Item i2;
+	//	NPC npc;
 		currentRoom = World.buildWorld();
-		System.out.println(currentRoom);
-		do {
+		gui = new GUI();
+		print("You have been sent on a mission to a mansion. Your goal is to recollect and return the missing skeleton parts of the houses owner and return them to the tomb. It is said that his skeleton has been scattered around the property. Once you entered through the front gate it closes shut behind you, so if you want to make it out of here you better complete what you came here to do. You proceed to enter the front door of the house.");
+		print(currentRoom);
+/*		do {
 			System.out.println();
 			System.out.print("What do you want to do? ");
 			playerCommand = scan.nextLine();
@@ -127,14 +278,19 @@ public class Game {
 							print("The room is locked.");
 						} else {
 							currentRoom = nextRoom;
-							System.out.println();
-							System.out.println(currentRoom);
+							print(currentRoom);
 						}
 					} else {
+						System.out.println();
 						print("You can't travel that way!");
 					}
 					
 					if(getCurrentRoom().getName().equals("Exit")) {
+						try {
+							Thread.sleep(5000);
+						} catch (InterruptedException e) {
+							e.printStackTrace();
+						}
 						System.exit(0);
 					}
 					break;
@@ -146,7 +302,7 @@ public class Game {
 				case "load":
 					loadGame();
 					System.out.println();
-					System.out.println(currentRoom);
+					print(currentRoom);
 					break;
 					
 				case "i":
@@ -154,7 +310,7 @@ public class Game {
 						print("You are carrying nothing.");
 					} else {
 						for(Item i: inventory) {
-							System.out.println(i);
+							print(i);
 						}
 					}
 					break;
@@ -223,16 +379,41 @@ public class Game {
 					break;
 					
 				case "talk":
+					boolean found3 = false;
 					npc = currentRoom.getNPC(a[1]);
-					npc.talk();
+					if(npc != null) {
+						found3 = true;
+						npc.talk();
+					}
+					
+					if(!found3) {
+						System.out.println();
+						print("There is no "+a[1]+" to talk to!");
+					}
+					
 					break;
 					
 				default:
 					print("Invalid command.");
 			}
 		} while(!playerCommand.equals("x"));
-		scan.close();
+		scan.close(); */
 	} //close main
+	
+	private class Pause extends Thread {
+		public void run() {
+			try {			
+				Thread.sleep(5000);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			System.exit(0);
+		}
+	}
+	
+	public void pause() {
+		(new Pause()).start();
+	}
 	
 	public static Item getItem(String name) {
 		for(Item i : inventory) {
@@ -243,40 +424,4 @@ public class Game {
 		return null;
 	}
 } //close class
-
-//	public static void main(String[] args) {
-//		Room currentRoom = World.buildWorld();
-//		System.out.println(currentRoom);
-//		System.out.println("\nNow we'll move west!");
-//		currentRoom = currentRoom.getExit('w');
-//		System.out.println(currentRoom);
-//		System.out.println("\nNow we'll move down!");
-//		currentRoom = currentRoom.getExit('d');
-//		System.out.println(currentRoom);
-//		System.out.println("\nNow we'll move up!");
-//		currentRoom = currentRoom.getExit('u');
-//		System.out.println(currentRoom);
-//		System.out.println("\nNow we'll move east!");
-//		currentRoom = currentRoom.getExit('e');
-//		System.out.println(currentRoom);
-//		System.out.println("\nNow we'll move north!");
-//		currentRoom = currentRoom.getExit('n');
-//		System.out.println(currentRoom);
-//		System.out.println("\nNow we'll move south!");
-//		currentRoom = currentRoom.getExit('s');
-//		System.out.println(currentRoom);
-//		System.out.println("\nNow we'll move south!");
-//		currentRoom = currentRoom.getExit('s');
-//		System.out.println(currentRoom);
-//		System.out.println("\nNow we'll move north!");
-//		currentRoom = currentRoom.getExit('n');
-//		System.out.println(currentRoom);
-//		System.out.println("\nNow we'll move up!");
-//		currentRoom = currentRoom.getExit('u');
-//		System.out.println(currentRoom);
-//		System.out.println("\nNow we'll move down!");
-//		currentRoom = currentRoom.getExit('d');
-//		System.out.println(currentRoom);
-//		}
-
 

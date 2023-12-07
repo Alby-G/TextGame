@@ -23,7 +23,7 @@ public class Torso extends Item{
 				Item i  = Game.getCurrentRoom().getItem("grave");
 				i.setLocked(false);
 			} else {
-				Game.print("You have placed the right arm bone into the open grave, but there are still more bones to collect.");
+				Game.print("You have placed the torso into the open grave, but there are still more bones to collect.");
 			}
 		} else {
 			Game.print("You can't do this right now.");
